@@ -1,16 +1,8 @@
 # refaccionaria
 
-A new Flutter project.
+Proyecto final de Taller de Base de Datos
 
-## Getting Started
+## Que es?
 
-This project is a starting point for a Flutter application.
+Este proyecto consta de la conexion de una base de datos en phpMyAdmin hacia un programa de Flutter para aplicaciones moviles
 
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.

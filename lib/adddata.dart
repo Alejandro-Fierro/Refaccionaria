@@ -14,7 +14,7 @@ class _AddDataState extends State<AddData> {
   var _formKey = GlobalKey<FormState>();
 
   void addData() {
-    var url = "http://10.0.2.2/tienda/adddata.php&quot";
+    var url = Uri.parse("http://10.0.2.2/tienda/adddata.php&quot");
 
     http.post(url, body: {
       "username": controllerUsername.text,
@@ -24,7 +24,7 @@ class _AddDataState extends State<AddData> {
     });
   }
  
-  String _mySelection;
+  String? _mySelection = " ";
   List<Map> _myJson = [{"id":0,"name":"ventas"},{"id":1,"name":"admin"}];
 
   @override
@@ -45,8 +45,8 @@ class _AddDataState extends State<AddData> {
                     leading: const Icon(Icons.person, color: Colors.black),
                     title: new TextFormField(
                       controller: controllerUsername,
-                          validator: (value) {
-                            if (value.isEmpty) return "Ingresa un nombre de usurio";
+                          validator: (String? value) {
+                            if (value!.isEmpty) return "Ingresa un nombre de usurio";
                           },
                       decoration: new InputDecoration(
                         hintText: "Usurio", labelText: "Usuario",
@@ -57,8 +57,8 @@ class _AddDataState extends State<AddData> {
                     leading: const Icon(Icons.location_on, color: Colors.black),
                     title: new TextFormField(
                       controller: controllerPassword,
-                          validator: (value) {
-                            if (value.isEmpty) return "Ingresa una Contraseña";
+                          validator: (String? value) {
+                            if (value!.isEmpty) return "Ingresa una Contraseña";
                           },
                       decoration: new InputDecoration(
                         hintText: "Contraseña", labelText: "Contraseña",
@@ -82,7 +82,7 @@ class _AddDataState extends State<AddData> {
                             iconSize: 40.0,
                             elevation: 10,
                             value: _mySelection,
-                            onChanged: (String newValue) {
+                            onChanged: (String? newValue) {
                               setState(() {
                                 _mySelection = newValue;
                               });
@@ -110,7 +110,7 @@ class _AddDataState extends State<AddData> {
                     shape: new RoundedRectangleBorder(
                         borderRadius: new BorderRadius.circular(30.0)),
                     onPressed: () {
-                      if (_formKey.currentState.validate()) {
+                      if (_formKey.currentState!.validate()) {
                         addData();
                         Navigator.pop(context);
                       }
